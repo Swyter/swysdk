@@ -1,35 +1,52 @@
+:: @> hi there! I'm pretty honored to see you here,
+::    please feel free to copy anything. -Greetings from Swyter
+::   -------------------------------------------------------------
+
+SETLOCAL ENABLEEXTENSIONS
+SETLOCAL ENABLEDELAYEDEXPANSION
+MODE CON: COLS=40 LINES=40
+
 :init
-@echo off && cls && color 1f && title [ ] swysdk -- building
-set PYTHONPATH=%CD%;%CD%\Header;%CD%\ID;%CD%\Process;%PYTHONPATH%
-python process_init.py -B
-python process_global_variables.py -B
-python process_strings.py -B
-python process_skills.py -B
-python process_music.py -B
-python process_animations.py -B
-python process_meshes.py -B
-python process_sounds.py -B
-python process_skins.py -B
-python process_map_icons.py -B
-python process_factions.py -B
-python process_items.py -B
-python process_scenes.py -B
-python process_troops.py -B
-python process_particle_sys.py -B
-python process_scene_props.py -B
-python process_tableau_materials.py -B
-python process_presentations.py -B
-python process_party_tmps.py -B
-python process_parties.py -B
-python process_quests.py -B
-python process_info_pages.py -B
-python process_scripts.py -B
-python process_mission_tmps.py -B
-python process_game_menus.py -B
-python process_simple_triggers.py -B
-python process_dialogs.py -B
-python process_global_variables_unused.py -B
-python process_postfx.py -B
+@echo off
+cls && color 71 && title [ ] swysdk -- building
+
+:: this is to support paths with spaces and strange characters
+set CD="!CD!"
+
+:: setup our python and specify what folders are included in the search path for scripts
+set PATH=!CD:~1,-1!\Python
+set PYTHONPATH=%PYTHONPATH%;!CD:~1,-1!\ID;!CD:~1,-1!\Header;!CD:~1,-1!\Process;!CD:~1,-1!
+
+:: the -B param overides the pyc/pyo bytecode generation, so there's no need for deleting them later :)
+python -B Process/process_init.py
+python -B Process/process_global_variables.py
+python -B Process/process_strings.py
+python -B Process/process_skills.py
+python -B Process/process_music.py
+python -B Process/process_animations.py
+python -B Process/process_meshes.py
+python -B Process/process_sounds.py
+python -B Process/process_skins.py
+python -B Process/process_map_icons.py
+python -B Process/process_factions.py
+python -B Process/process_items.py
+python -B Process/process_scenes.py
+python -B Process/process_troops.py
+python -B Process/process_particle_sys.py
+python -B Process/process_scene_props.py
+python -B Process/process_tableau_materials.py
+python -B Process/process_presentations.py
+python -B Process/process_party_tmps.py
+python -B Process/process_parties.py
+python -B Process/process_quests.py
+python -B Process/process_info_pages.py
+python -B Process/process_scripts.py
+python -B Process/process_mission_tmps.py
+python -B Process/process_game_menus.py
+python -B Process/process_simple_triggers.py
+python -B Process/process_dialogs.py
+python -B Process/process_global_variables_unused.py
+python -B Process/process_postfx.py
 title [X] swysdk -- finished
 echo ______________________________
 echo Script processing has ended.
