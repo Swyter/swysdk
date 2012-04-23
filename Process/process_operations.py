@@ -27,7 +27,7 @@ from module_presentations import *
 from module_map_icons import *
 from module_tableau_materials import *
 from module_animations import *
-
+from process__swyhelper import *
 
 def get_id_value(tag, identifier, tag_uses):
   tag_type = -1
@@ -111,7 +111,13 @@ def get_identifier_value(str, tag_uses):
       if (id_no < 0):
         print "Error: Unable to find object:" + str
       else:
-        result = id_no | (tag_type << op_num_value_bits)
+        #@swy-antireveng#
+        #> The game only needs type tags for registers, local variables, global variables, strings, quick strings
+        #result = id_no | (tag_type << op_num_value_bits)
+        if(tag_type==tag_register or tag_type==tag_local_variable or tag_type==tag_variable or tag_type==tag_string or tag_type==tag_quick_string):
+          result = id_no | (tag_type << op_num_value_bits)
+        else:
+          result = id_no
     else:
       print "Error: Unrecognized tag:" +tag_str + "in object:" + str
   else:
@@ -152,7 +158,16 @@ def load_variables(export_dir,variable_uses):
       if vv:
         variables.append(vv)
   except:
-    print "variables.txt not found. Creating new variables.txt file"
+	try:
+		file = open("variables.txt","r")
+		var_list = file.readlines()
+		file.close()
+		for v in var_list:
+			vv = string.strip(v)
+			if vv:
+				variables.append(vv)
+	except:
+		print "variables.txt not found. Creating new variables.txt file"
 
   try:
     file = open(export_dir + "variable_uses.txt","r")
@@ -168,7 +183,10 @@ def load_variables(export_dir,variable_uses):
   return variables
 
 def save_variables(export_dir,variables_list,variable_uses):
-  file = open(export_dir + "variables.txt","w")
+  #@swy-antireveng#
+  #> The game doesn't really use the variable names, so we use the one in our base dir instead.
+  #file = open(export_dir + "variables.txt","w")
+  file = open("variables.txt","w")
   for i in xrange(len(variables_list)):
     file.write("%s\n"%variables_list[i])
   file.close()
@@ -467,7 +485,7 @@ def compile_global_vars(statement_block,variable_list, variable_uses):
 def save_simple_triggers(ofile,triggers,variable_list, variable_uses,tag_uses,quick_strings):
   ofile.write("%d\n"%len(triggers))
   for trigger in triggers:
-    ofile.write("%f "%(trigger[0]))
+    ofile.write("%s "%(swytrailzro(trigger[0])))
     save_statement_block(ofile,0,1,trigger[1]  , variable_list, variable_uses,tag_uses,quick_strings)
     ofile.write("\n")
   ofile.write("\n")

@@ -7,7 +7,7 @@ from module_dialogs import *
 
 from process_common import *
 from process_operations import *
-
+from process__swyhelper import *
 
 speaker_pos = 0
 ipt_token_pos = 1
@@ -49,7 +49,7 @@ def save_triggers(variable_list,variable_uses,triggers,tag_uses,quick_strings):
   file.write("%d\n"%len(triggers))
   for i in xrange(len(triggers)):
     trigger = triggers[i]
-    file.write("%f %f %f "%(trigger[trigger_check_pos],trigger[trigger_delay_pos],trigger[trigger_rearm_pos]))
+    file.write("%s %s %s "%(swytrailzro(trigger[trigger_check_pos]),swytrailzro(trigger[trigger_delay_pos]),swytrailzro(trigger[trigger_rearm_pos])))
     save_statement_block(file,0,1,trigger[trigger_conditions_pos]  , variable_list, variable_uses,tag_uses,quick_strings)
     save_statement_block(file,0,1,trigger[trigger_consequences_pos], variable_list, variable_uses,tag_uses,quick_strings)
 #    for condition in trigger[trigger_conditions_pos]:
@@ -100,7 +100,9 @@ def compile_sentence_tokens(sentences):
       print "**********************************************************************************"
       print "**********************************************************************************"
     input_tokens.append(input_token_id)
-  save_dialog_states(dialog_states)
+  #@swy-antireveng#
+  #> The game doesn't cares about dialog states. Don't create it.
+  #save_dialog_states(dialog_states)
   for i_t in xrange(len(dialog_states)):
     if dialog_state_usages[i_t] == 0:
       print "ERROR: Output token not found: " + dialog_states[i_t]

@@ -1,6 +1,7 @@
 from header_common import *
 from module_info import *
 from module_postfx import *
+from process__swyhelper import *
 
 def write_python_header(postfx_params_list):
   file = open("./ID/ID_postfx_params.py","w")
@@ -18,9 +19,9 @@ def write_postfx_params(postfx_params_list):
     params_list1 = postfx_param[3]
     params_list2 = postfx_param[4]
     params_list3 = postfx_param[5]
-    ofile.write("  %f %f %f %f"%(params_list1[0], params_list1[1], params_list1[2], params_list1[3]))
-    ofile.write("  %f %f %f %f"%(params_list2[0], params_list2[1], params_list2[2], params_list2[3]))
-    ofile.write("  %f %f %f %f\n"%(params_list3[0], params_list3[1], params_list3[2], params_list3[3]))
+    ofile.write("  %s %s %s %s"  %(swytrailzro(params_list1[0]), swytrailzro(params_list1[1]), swytrailzro(params_list1[2]), swytrailzro(params_list1[3]) ))
+    ofile.write("  %s %s %s %s"  %(swytrailzro(params_list2[0]), swytrailzro(params_list2[1]), swytrailzro(params_list2[2]), swytrailzro(params_list2[3]) ))
+    ofile.write("  %s %s %s %s\n"%(swytrailzro(params_list3[0]), swytrailzro(params_list3[1]), swytrailzro(params_list3[2]), swytrailzro(params_list3[3]) ))
   ofile.close()
 
 print "Exporting postfx_params..."

@@ -6,6 +6,7 @@ from module_mission_templates import *
 
 from process_common import *
 from process_operations import *
+from process__swyhelper import *
 
 mission_template_name_pos = 0
 mission_template_flags_pos = 1
@@ -18,7 +19,7 @@ def save_triggers(file,template_name,triggers,variable_list,variable_uses,tag_us
   file.write("%d\n"%len(triggers))
   for i in xrange(len(triggers)):
     trigger = triggers[i]
-    file.write("%f %f %f "%(trigger[trigger_check_pos],trigger[trigger_delay_pos],trigger[trigger_rearm_pos]))
+    file.write("%s %s %s "%(swytrailzro(trigger[trigger_check_pos]),swytrailzro(trigger[trigger_delay_pos]),swytrailzro(trigger[trigger_rearm_pos])))
     save_statement_block(file, 0, 1, trigger[trigger_conditions_pos]  , variable_list,variable_uses,tag_uses,quick_strings)
     save_statement_block(file, 0, 1, trigger[trigger_consequences_pos], variable_list,variable_uses,tag_uses,quick_strings)
     file.write("\n")

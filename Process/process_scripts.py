@@ -1,3 +1,4 @@
+# -*- coding: iso8859_2 -*-
 import string
 
 from module_info import *
@@ -5,6 +6,7 @@ from module_scripts import *
 
 from process_common import *
 from process_operations import *
+from process__swyhelper import *
 
 def save_scripts(variable_list,variable_uses,scripts,tag_uses,quick_strings):
   file = open(export_dir + "scripts.txt","w")
@@ -14,11 +16,16 @@ def save_scripts(variable_list,variable_uses,scripts,tag_uses,quick_strings):
   list_type = type(temp_list)
   for i_script in xrange(len(scripts)):
     func = scripts[i_script]
+    #@swy-antireveng#
+    #> Use the section symbol instead of the script name, looks pretty cool.
+    file.write("§ ")
     if (type(func[1]) == list_type):
-      file.write("%s -1\n"%(convert_to_identifier(func[0])))
+     #file.write("%s -1\n"%(convert_to_identifier(func[0])))
+      file.write("-1\n")
       save_statement_block(file,convert_to_identifier(func[0]), 0,func[1], variable_list,variable_uses,tag_uses,quick_strings)
     else:
-      file.write("%s %f\n"%(convert_to_identifier(func[0]), func[1]))
+     #file.write("%s %f\n"%(convert_to_identifier(func[0]), func[1]))
+      file.write("%f\n"%swytrailzro(func[1]))
       save_statement_block(file,convert_to_identifier(func[0]), 0,func[2], variable_list,variable_uses,tag_uses,quick_strings)
     file.write("\n")
   file.close()

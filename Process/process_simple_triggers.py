@@ -3,6 +3,7 @@ from module_simple_triggers import *
 
 from process_common import *
 from process_operations import *
+from process__swyhelper import *
 
 def save_simple_triggers(variable_list,variable_uses,triggers,tag_uses,quick_strings):
   file = open(export_dir + "simple_triggers.txt","w")
@@ -10,7 +11,7 @@ def save_simple_triggers(variable_list,variable_uses,triggers,tag_uses,quick_str
   file.write("%d\n"%len(simple_triggers))
   for i in xrange(len(simple_triggers)):
     simple_trigger = simple_triggers[i]
-    file.write("%f "%(simple_trigger[0]))
+    file.write("%s "%(swytrailzro(simple_trigger[0])))
     save_statement_block(file,0, 1, simple_trigger[1]  , variable_list,variable_uses,tag_uses,quick_strings)
     file.write("\n")
   file.close()
