@@ -38,7 +38,7 @@ def save_ground_specs():
   file.close()
 
 def save_c_header():
-  file = open("./ground_spec_codes.h","w")
+  file = open("./Data/ground_spec_codes.h","w")
   file.write("#ifndef _GROUND_SPEC_CODES_H\n")
   file.write("#define _GROUND_SPEC_CODES_H\n\n")
   file.write("typedef enum {\n")
