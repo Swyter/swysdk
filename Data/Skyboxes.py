@@ -1,3 +1,6 @@
+from module_info import *
+from process__swyhelper import *
+
 sf_day        = 0x00000000
 sf_dawn       = 0x00000001
 sf_night      = 0x00000002
@@ -63,14 +66,14 @@ skyboxes = [
 
 
 def save_skyboxes():
-  file = open("./skyboxes.txt","w")
+  file = open(export_dir + "/Data/skyboxes.txt","w")
   file.write("%d\n"%len(skyboxes))
   for skybox in  skyboxes:
-    file.write("%s %d %f %f %f %s\n"%(skybox[0],skybox[1],skybox[2],skybox[3],skybox[4],skybox[5]))
-    file.write(" %f %f %f "%skybox[6])
-    file.write(" %f %f %f "%skybox[7])
-    file.write(" %f %f %f "%skybox[8])
-    file.write(" %f %d\n"%skybox[9])
+    file.write("%s %d %s %s %s %s\n"%(skybox[0],skybox[1],swytrailzro(skybox[2]),swytrailzro(skybox[3]),swytrailzro(skybox[4]),skybox[5]))
+    file.write(" %s %s %s "%(swytrailzro(skybox[6][0]),swytrailzro(skybox[6][1]),swytrailzro(skybox[6][2])))
+    file.write(" %s %s %s "%(swytrailzro(skybox[7][0]),swytrailzro(skybox[7][1]),swytrailzro(skybox[7][2])))
+    file.write(" %s %s %s "%(swytrailzro(skybox[8][0]),swytrailzro(skybox[8][1]),swytrailzro(skybox[8][2])))
+    file.write(" %s %d\n"%(swytrailzro(skybox[9][0]),skybox[9][1]))
   file.close()
 
 print "Exporting skyboxes..."
