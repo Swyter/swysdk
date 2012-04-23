@@ -10302,6 +10302,7 @@ scripts = [
           (eq, ":event_type", multiplayer_event_show_server_message),
           (display_message, "str_server_s0", 0xFFFF6666),
         (try_end),
+      (try_end),
      ]),
 
   # script_cf_multiplayer_evaluate_poll
