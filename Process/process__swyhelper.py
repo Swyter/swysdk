@@ -3,7 +3,7 @@ import decimal
 
 def swytrailzro(num):
 	# try:
-		float(num)
+		#float(num)
 		return ('%f' % num).rstrip('0').rstrip('.')
 	
 	# except ValueError:
