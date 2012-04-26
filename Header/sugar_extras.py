@@ -4,11 +4,12 @@
 # <http://forums.taleworlds.com/index.php?topic=157469.0>
 
 import string
+from header_operations import *
 
 #===============================================================================
 # Troop wrapper
 #===============================================================================
-class T:
+class trp:
     def __init__(self, ID):
         if (ID[0] == ":") or (ID[0] == "$"):
             self.ID = ID
@@ -162,7 +163,7 @@ class T:
 #===============================================================================
 # Quest wrapper
 #===============================================================================
-class Q:
+class qst:
     def __init__(self, ID):
         if (ID[0] == ":") or (ID[0] == "$"):
             self.ID = ID
@@ -183,3 +184,26 @@ class Q:
 
     def is_concluded (self, modifier=0):
         return modifier | check_quest_concluded, self.ID
+		
+#===============================================================================
+# Party wrapper
+#===============================================================================
+class p:
+    def __init__(self, ID):
+        if (ID[0] == ":") or (ID[0] == "$"):
+            self.ID = ID
+        else:
+            self.ID = "p_" + ID
+
+    def set_slot(self, slot_no, value):
+        return party_set_slot, self.ID, slot_no, value
+
+    def get_slot (self, destination, slot_no):
+        return party_get_slot, destination, self.ID, slot_no
+		
+		
+def call(ID, *values):
+	if not ID.startswith("script_"):
+		ID = "script_" + ID
+	base=[call_script,ID,]
+	return tuple(base.append(list(values)))

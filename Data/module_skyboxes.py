@@ -76,7 +76,6 @@ def save_skyboxes():
     file.write(" %s %d\n"%(swytrailzro(skybox[9][0]),skybox[9][1]))
   file.close()
 
-print "Exporting skyboxes..."
+print ("Exporting skyboxes...")
 save_skyboxes()
-print "Finished."
-  
+#print ("Finished.")

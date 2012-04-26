@@ -183,5 +183,5 @@ def save_python_header():
     file.write("%x\n"%(fauna_mask | ((low_fauna_mask|two_to_pow(i_fauna_kind)) << 64) | two_to_pow(i_fauna_kind)))
   file.close()
 
-print "Exporting flora data..."
+print ("Exporting flora data...")
 save_fauna_kinds()

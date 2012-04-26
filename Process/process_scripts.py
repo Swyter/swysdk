@@ -10,6 +10,7 @@ from process__swyhelper import *
 
 def save_scripts(variable_list,variable_uses,scripts,tag_uses,quick_strings):
   file = open(export_dir + "scripts.txt","w")
+  obfs = open(export_dir + "obfuscated_scripts.txt","w")
   file.write("scriptsfile version 1\n")
   file.write("%d\n"%len(scripts))
   temp_list = []
@@ -18,7 +19,14 @@ def save_scripts(variable_list,variable_uses,scripts,tag_uses,quick_strings):
     func = scripts[i_script]
     #@swy-antireveng#
     #> Use the section symbol instead of the script name, looks pretty cool.
-    file.write("§ ")
+    script_name=convert_to_identifier(func[0])
+    
+    if (swysdk['enable_obfuscation'] and not script_name.startswith("game_") and not script_name.startswith("wse_")):
+       file.write("§%s "%str(i_script))
+       obfs.write("§%s = %s\n"%(str(i_script), script_name))
+    else:
+        file.write("%s "%(script_name) )
+    
     if (type(func[1]) == list_type):
      #file.write("%s -1\n"%(convert_to_identifier(func[0])))
       file.write("-1\n")
@@ -29,6 +37,7 @@ def save_scripts(variable_list,variable_uses,scripts,tag_uses,quick_strings):
       save_statement_block(file,convert_to_identifier(func[0]), 0,func[2], variable_list,variable_uses,tag_uses,quick_strings, convert_to_identifier(func[0]) )
     file.write("\n")
   file.close()
+  obfs.close()
 
 def save_python_header():
   file = open("./ID/ID_scripts.py","w")

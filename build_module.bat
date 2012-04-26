@@ -14,7 +14,7 @@ cls && color 71 && title [ ] swysdk -- building
 set CD="!CD!"
 
 :: setup our python and specify what folders are included in the search path for scripts
-set PATH=!CD:~1,-1!\Python
+set PATH=!CD:~1,-1!\Builder\Python
 set PYTHONPATH=%PYTHONPATH%;!CD:~1,-1!\ID;!CD:~1,-1!\Header;!CD:~1,-1!\Process;!CD:~1,-1!
 
 :: the -B param overides the pyc/pyo bytecode generation, so there's no need for deleting them later :)
