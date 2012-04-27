@@ -13,6 +13,7 @@ cls && color 71 && title [ ] swysdk -- building
 :: this is to support paths with spaces and strange characters
 set CD="!CD!"
 set msyspp_params=-hide-tags -id-folder -hide-scripts
+set PATH=""
 
 :: specify what folders are included in the search path for scripts
 set PYTHONPATH=%PYTHONPATH%;!CD:~1,-1!\ID;!CD:~1,-1!\Header;!CD:~1,-1!\Process;!CD:~1,-1!\Data;!CD:~1,-1!
