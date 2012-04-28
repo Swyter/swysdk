@@ -337,8 +337,8 @@ simple_triggers = [
   #Pay day.
   (24 * 7,
    [
-     (assign, "$g_presentation_lines_to_display_begin", 0),
-     (assign, "$g_presentation_lines_to_display_end", 15),
+     #(assign, "$g_presentation_lines_to_display_begin", 0),
+     #(assign, "$g_presentation_lines_to_display_end", 15),
      (assign, "$g_apply_budget_report_to_gold", 1),
      (try_begin),
        (eq, "$g_infinite_camping", 0),
@@ -2396,7 +2396,7 @@ simple_triggers = [
   (2,
    [
        (store_troop_gold, ":total_value", "trp_player"),
-       (store_div, ":bandit_attraction", ":total_value", (10000/100)), #10000 gold = excellent_target
+       (store_div, ":bandit_attraction", ":total_value", 100), #(10000/100)), #10000 gold = excellent_target
 
        (troop_get_inventory_capacity, ":inv_size", "trp_player"),
        (try_for_range, ":i_slot", 0, ":inv_size"),

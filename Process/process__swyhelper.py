@@ -20,6 +20,12 @@ from module_info import *
     # pickle.dump(db.items(), open("Header/_swysdk.buildcache", "w"))
 
 
+# Ensure variable is defined
+try:
+    swysdk
+except NameError:
+    swysdk={'enable_optimizations': False, 'enable_obfuscation': False}
+    
 #! Based on: http://stackoverflow.com/a/2440786
 def swytrailzro(num):
 	import decimal

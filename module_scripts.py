@@ -6437,7 +6437,7 @@ scripts = [
       (try_end),
       (troop_set_slot, "trp_player", slot_troop_custom_banner_flag_type, -1),
       (troop_set_slot, "trp_player", slot_troop_custom_banner_map_flag_type, -1),
-      (store_random_in_range, "$g_election_date", 0, 45), #setting a random election date
+      #(store_random_in_range, "$g_election_date", 0, 45), #setting a random election date
       #Assigning global constant
       #(call_script, "script_store_average_center_value_per_faction"),
 
@@ -10300,6 +10300,7 @@ scripts = [
         (else_try),
           (eq, ":event_type", multiplayer_event_show_server_message),
           (display_message, "str_server_s0", 0xFFFF6666),
+        (try_end),
         (try_end),
      ]),
 
