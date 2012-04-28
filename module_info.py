@@ -11,5 +11,5 @@ swysdk = {
 	  'enable_obfuscation': True,
 	'enable_optimizations': True,
 	      'enable_caching': True,
-            'enable_wse': False,
+	          'enable_wse': False,
 }

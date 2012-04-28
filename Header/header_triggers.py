@@ -128,7 +128,7 @@ ti_on_order_issued					  = -71.0 #can only be used in module_mission_templates t
   # Trigger Param 2: agent id
 
 
-## WARBAND SCRIPT ENHANCER 1.x RELATED SCRIPTS
+## WARBAND SCRIPT ENHANCER 1.x RELATED TRIGGERS
 ## --
 ## THE FOLLOWING SCRIPTS ARE ONLY CALLED WHEN A GAME LOADED UNDER WSE IS RUNNING
 ## For more information visit <http://forums.taleworlds.com/index.php/topic,151194.0.html>
