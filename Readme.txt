@@ -1,6 +1,6 @@
 
   __________________________________
- /  __               ___  ___    __ \ V 1.151
+ /  __               ___  ___    __ \ V 1.152
  \ \__ \  \  \ \__\ \__  \   \ \/__  \
   \ __\ \ _\ _\ ___\  __\ \__/  \  \  \
    \__________________________________/
@@ -36,7 +36,6 @@
         scene_list
         scene_missiontemplates
         scene_props
-
         
     —MAP
         map_icons
@@ -48,19 +47,19 @@
         game_factions
         game_music
         game_postfx
-        game_psystems
+        game_particlesystems
         game_scripts
         game_simpletriggers
         game_sounds
         game_strings
-        game_tableau_materials
+        game_tableaumaterials
         game_triggers
         game_variables
         
         
     —UI
         ui_dialogs
-        ui_info_pages
+        ui_infopages
         ui_menus
         ui_meshes
         ui_presentations
@@ -97,11 +96,13 @@
     module_skins             —> agent_skins
     module_sounds            —> game_sounds
     module_strings           —> game_strings
-    module_tableau_materials —> game_tableau_materials
+    module_tableau_materials —> game_tableaumaterials
     module_triggers          —> game_triggers
     module_troops            —> agent_list
     module_variables         —> game_variables
 
   
-  Notepad++, Notepad2, Gedit, Sublime Text 2 or a similar code editor is recommended.
-  A Python interpreter is included.
+  Notepad++, Notepad2, Gedit, Geany, Sublime Text 2 or a similar code editor is recommended.
+
+  A Python interpreter, and a standalone, much faster full-featured compiler
+  named ModuleSystem++ are included.
