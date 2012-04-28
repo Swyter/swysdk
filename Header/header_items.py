@@ -264,9 +264,9 @@ def abundance(x):
   return (((bignum | x) & ibf_armor_mask) << iwf_abundance_bits)
 
 def get_abundance(y):
-  abnd   = (y >> iwf_abundance_bits) & ibf_armor_mask
-  if (abnd   =  = 0):
-    abnd   = 100
+  abnd = (y >> iwf_abundance_bits) & ibf_armor_mask
+  if (abnd == 0):
+    abnd = 100
   return abnd
 
 def accuracy(x):
