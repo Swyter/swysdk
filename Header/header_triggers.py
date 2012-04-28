@@ -25,94 +25,182 @@ ti_on_agent_spawn        = -25.0 #can only be used in module_mission_templates t
 ti_on_agent_killed_or_wounded = -26.0 #can only be used in module_mission_templates triggers
 ti_on_agent_knocked_down = -27.0 #can only be used in module_mission_templates triggers
 ti_on_agent_hit          = -28.0 #can only be used in module_mission_templates triggers
-# Trigger Param 1: damage inflicted agent_id
-# Trigger Param 2: damage dealer agent_id
-# Trigger Param 3: inflicted damage
-# Register 0: damage dealer item_id
-# Position Register 0: position of the blow
-#                      rotation gives the direction of the blow
-# Trigger result: if returned result is greater than or equal to zero, inflicted damage is set to the value specified by the module.
+ # Trigger Param 1: damage inflicted agent_id
+ # Trigger Param 2: damage dealer agent_id
+ # Trigger Param 3: inflicted damage
+ # Register 0: damage dealer item_id
+ # Position Register 0: position of the blow
+ #                      rotation gives the direction of the blow
+ # Trigger result: if returned result is greater than or equal to zero, inflicted damage is set to the value specified by the module.
 
 ti_on_player_exit        = -29.0 #can only be used in module_mission_templates triggers
-# Trigger Param 1: player_id
+ # Trigger Param 1: player_id
 
 ti_on_leave_area         = -30.0 #can only be used in module_mission_templates triggers
 ti_on_scene_prop_init    = -40.0 #can only be used in module_scene_props triggers
 ti_on_init_scene_prop    = ti_on_scene_prop_init
-# Trigger Param 1: prop instance number
+ # Trigger Param 1: prop instance number
 
 ti_on_scene_prop_hit     = -42.0 #can only be used in module_scene_props triggers
-# Trigger Param 1: prop instance number
-# Trigger Param 2: hit damage
-# Position Register 1: Hit Position
-# Position Register 2: x holds attacker agent id
+ # Trigger Param 1: prop instance number
+ # Trigger Param 2: hit damage
+ # Position Register 1: Hit Position
+ # Position Register 2: x holds attacker agent id
 
 ti_on_scene_prop_destroy = -43.0 #can only be used in module_scene_props triggers
-# Trigger Param 1: prop instance number
+ # Trigger Param 1: prop instance number
 
 ti_on_scene_prop_use     = -44.0 #can only be used in module_scene_props triggers
-# Trigger Param 1: user agent id
-# Trigger Param 2: prop instance number
+ # Trigger Param 1: user agent id
+ # Trigger Param 2: prop instance number
 
 ti_on_scene_prop_is_animating = -45.0 #can only be used in module_scene_props triggers
-# Trigger Param 1: prop instance number
-# Trigger Param 2: remaining animation time
+ # Trigger Param 1: prop instance number
+ # Trigger Param 2: remaining animation time
 
 ti_on_scene_prop_animation_finished = -46.0 #can only be used in module_scene_props triggers
-# Trigger Param 1: prop instance number
+ # Trigger Param 1: prop instance number
 
 ti_on_scene_prop_start_use = -47.0 #can only be used in module_scene_props triggers
-# Trigger Param 1: user agent id
-# Trigger Param 2: prop instance number
+ # Trigger Param 1: user agent id
+ # Trigger Param 2: prop instance number
 
 ti_on_scene_prop_cancel_use = -48.0 #can only be used in module_scene_props triggers
-# Trigger Param 1: user agent id
-# Trigger Param 2: prop instance number
+ # Trigger Param 1: user agent id
+ # Trigger Param 2: prop instance number
 
 ti_on_init_item          = -50.0 #can only be used in module_items triggers
 ti_on_weapon_attack      = -51.0 #can only be used in module_items triggers
-# Trigger Param 1: attacker agent id
-# Position Register 1: Weapon Item Position
+ # Trigger Param 1: attacker agent id
+ # Position Register 1: Weapon Item Position
+
 ti_on_missile_hit        = -52.0 #can only be used in module_items triggers
-# Position Register 1: Missile Position
-# Trigger Param 1: shooter agent id
+ # Position Register 1: Missile Position
+ # Trigger Param 1: shooter agent id
+
 ti_on_item_picked_up     = -53.0 #can only be used in module_mission_templates triggers
-# Trigger Param 1: agent id
-# Trigger Param 2: item id
-# Trigger Param 3: scene prop id (will be deleted after this trigger)
+ # Trigger Param 1: agent id
+ # Trigger Param 2: item id
+ # Trigger Param 3: scene prop id (will be deleted after this trigger)
+
 ti_on_item_dropped       = -54.0 #can only be used in module_mission_templates triggers
-# Trigger Param 1: agent id
-# Trigger Param 2: item id
-# Trigger Param 3: scene prop id
+ # Trigger Param 1: agent id
+ # Trigger Param 2: item id
+ # Trigger Param 3: scene prop id
+
 ti_on_agent_mount        = -55.0 #can only be used in module_mission_templates triggers
-# Trigger Param 1: agent id
-# Trigger Param 2: horse agent id
+ # Trigger Param 1: agent id
+ # Trigger Param 2: horse agent id
+
 ti_on_agent_dismount     = -56.0 #can only be used in module_mission_templates triggers
-# Trigger Param 1: agent id
-# Trigger Param 2: horse agent id
+ # Trigger Param 1: agent id
+ # Trigger Param 2: horse agent id
+
 ti_on_item_wielded       = -57.0 #can only be used in module_mission_templates triggers
-# Trigger Param 1: agent id
-# Trigger Param 2: item id
+ # Trigger Param 1: agent id
+ # Trigger Param 2: item id
+
 ti_on_item_unwielded     = -58.0 #can only be used in module_mission_templates triggers
-# Trigger Param 1: agent id
-# Trigger Param 2: item id
+ # Trigger Param 1: agent id
+ # Trigger Param 2: item id
+
 ti_on_presentation_load  = -60.0 #can only be used in module_presentations triggers
 ti_on_presentation_run   = -61.0 #can only be used in module_presentations triggers
-# Trigger Param 1: current time in miliseconds
+ # Trigger Param 1: current time in miliseconds
+
 ti_on_presentation_event_state_change = -62.0 #can only be used in module_presentations triggers
-# Trigger Param 1: id of the object that has the event
-# Trigger Param 2: value (when available)
+ # Trigger Param 1: id of the object that has the event
+ # Trigger Param 2: value (when available)
+
 ti_on_presentation_mouse_enter_leave  = -63.0 #can only be used in module_presentations triggers
-# Trigger Param 1: id of the object that mouse enters/leaves
-# Trigger Param 2: 0 if mouse enters, 1 if mouse leaves
+ # Trigger Param 1: id of the object that mouse enters/leaves
+ # Trigger Param 2: 0 if mouse enters, 1 if mouse leaves
+
 ti_on_presentation_mouse_press        = -64.0 #can only be used in module_presentations triggers
-# Trigger Param 1: id of the object that mouse is pressed on
-# Trigger Param 2: 0: left mouse button, 1 right mouse button, 2 middle mouse button
+ # Trigger Param 1: id of the object that mouse is pressed on
+ # Trigger Param 2: 0: left mouse button, 1 right mouse button, 2 middle mouse button
+
 ti_on_init_map_icon                   = -70.0 #can only be used in module_map_icons triggers
-# Trigger Param 1: id of the owner party
+  # Trigger Param 1: id of the owner party
+
 ti_on_order_issued					  = -71.0 #can only be used in module_mission_templates triggers
-# Trigger Param 1: order no
-# Trigger Param 2: agent id
+  # Trigger Param 1: order no
+  # Trigger Param 2: agent id
+
+
+## WARBAND SCRIPT ENHANCER 1.x RELATED SCRIPTS
+## --
+## THE FOLLOWING SCRIPTS ARE ONLY CALLED WHEN A GAME LOADED UNDER WSE IS RUNNING
+## For more information visit <http://forums.taleworlds.com/index.php/topic,151194.0.html>
+## -->
+
+ti_on_agent_hit = -28.0 #can only be used in module_mission_templates triggers
+ # Trigger Param 1: receiver agent no
+ # Trigger Param 2: dealer agent no
+ # Trigger Param 3: inflicted damage
+ # Trigger Param 4: raw damage (before being soaked by armor)
+ # Trigger Param 5: hit bone
+ # Trigger Param 6: item kind no
+ # Trigger Param 7: item modifier
+ # Trigger Param 8: missile item kind no
+ # Trigger Param 9: missile item modifier
+ # Trigger Param 10: damage type
+ # Position Register 0: position of the blow
+ #                      rotation gives the direction of the blow
+ # Trigger Result: if set, damage dealt to agent
+
+ti_on_scene_prop_hit = -42.0 #can only be used in module_scene_props triggers
+ # Trigger Param 1: prop instance no
+ # Trigger Param 2: inflicted damage (server only)
+ # Trigger Param 3: dealer agent no (server only)
+ # Trigger Param 4: item kind no (server only)
+ # Trigger Param 5: item modifier (server only)
+ # Trigger Param 6: missile item kind no (server only)
+ # Trigger Param 7: missile item modifier (server only)
+ # Position Register 1: Hit Position
+ # Position Register 2: x holds dealer agent no
+
+ti_on_scene_prop_stepped_on = -100.0 #can only be used in module_scene_props triggers
+ # Trigger Param 1: agent no
+ # Trigger Param 2: prop instance no
+
+ti_on_init_missile = -101.0 #can only be used in module_items triggers
+ # Trigger Param 1: shooter agent no
+ # Trigger Param 2: launcher item kind no
+ # Trigger Param 3: launcher item modifier
+ # Trigger Param 4: missile item kind no
+ # Trigger Param 5: missile item modifier
+
+ti_on_agent_play_sound = -102.0 #can only be used in module_mission_templates triggers
+ # Trigger Param 1: agent no
+ # Trigger Param 2: sound no
+
+ti_on_shield_hit = -103.0 #can only be used in module_items triggers
+ # Trigger Param 1: receiver agent no
+ # Trigger Param 2: dealer agent no
+ # Trigger Param 3: inflicted damage
+ # Trigger Param 4: raw damage (before shield skill and skill resistance bonuses)
+ # Trigger Param 5: item kind no
+ # Trigger Param 6: item modifier
+ # Trigger Param 7: missile item kind no
+ # Trigger Param 8: missile item modifier
+ # Trigger Result: if set, damage dealt to shield
+
+ti_on_missile_dive = -104.0 #can only be used in module_items triggers
+ # Trigger Param 1: shooter agent no
+ # Trigger Param 2: launcher item kind no
+ # Trigger Param 3: launcher item modifier
+ # Trigger Param 4: missile item kind no
+ # Trigger Param 5: missile item modifier
+ # Position Register 0: water impact position
+
+ti_on_agent_start_reloading = -105.0 #can only be used in module_mission_templates triggers
+ # Trigger Param 1: agent no
+
+ti_on_agent_end_reloading = -106.0 #can only be used in module_mission_templates triggers
+ # Trigger Param 1: agent no
+
+## <-- WSE Triggers end
 
 
 ti_once        = 100000000.0

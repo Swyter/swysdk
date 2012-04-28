@@ -97,6 +97,16 @@ itp_has_upper_stab           = 0x0020000000000000
 itp_kill_info_mask           = 0x0700000000000000
 itp_kill_info_bits           = 56 # 0x0700000000000000
 
+## WARBAND SCRIPT ENHANCER -- header_items additions
+if swysdk['enable_wse']:
+## -->
+  itp_show_body            = 0x40000000 # forces showing body (works on body armor items)
+  itp_offset_mortschlag    = 0x2000000000000 # offsets melee weapon to mortschlag grip
+  itp_offset_melee_firearm = 0x4000000000000 # offsets pistol/musket to melee grip
+  itp_offset_flip          = 0x8000000000000 # flips melee weapon model 180 degrees on y-axis
+## <-- WSE header_items additions end
+
+
 #equipment slots
 ek_item_0 = 0
 ek_item_1 = 1
