@@ -601,7 +601,6 @@ except NameError:
 ## WARBAND SCRIPT ENHANCER -- header_common additions
 if swysdk['enable_wse']:
 ## -->
-  print("wse enabled for common!")
   #Tooltip types
   tooltip_agent            = 1
   tooltip_horse            = 2

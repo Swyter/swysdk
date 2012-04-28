@@ -47498,7 +47498,6 @@ scripts = [
   # For more information visit <http://forums.taleworlds.com/index.php/topic,151194.0.html>
   # -->
 if swysdk['enable_wse']:
- print("wse enabled for scrips!")
  scripts += [
   
     #script_wse_multiplayer_message_received
