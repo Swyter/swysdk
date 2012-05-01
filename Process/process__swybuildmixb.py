@@ -14,6 +14,11 @@ try:
  import process_scripts
 except NameError:
  handler()
+
+try:
+ import process_mission_tmps
+except NameError:
+ handler()
  
 try:
  import process_game_menus
