@@ -447,16 +447,24 @@ def save_statement_block(ofile,statement_name,can_fail_statement,statement_block
     else:
       opcode = statement[0]
       no_variables = 0
-    if (opcode in [try_begin,
-                   try_for_range,
-                   try_for_range_backwards,
-                   try_for_parties,
-                   try_for_agents,
-                   try_for_attached_parties,
-                   try_for_active_players,
-                   try_for_prop_instances,
-                   try_for_dict_keys,
-                   ]):
+    
+    tries=[
+    try_begin,
+    try_for_range,
+    try_for_range_backwards,
+    try_for_parties,
+    try_for_agents
+    ]
+    
+    if swysdk['enable_wse']:
+     tries+=[
+     try_for_attached_parties,
+     try_for_active_players,
+     try_for_prop_instances,
+     try_for_dict_keys
+     ]
+       
+    if (opcode in tries):
       current_depth = current_depth + 1
     elif (opcode == try_end):
       current_depth = current_depth - 1
