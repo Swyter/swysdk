@@ -1024,3 +1024,6 @@ spr_tree_house_guard_a = 1022
 spr_tree_house_guard_b = 1023
 spr_tree_shelter_a = 1024
 spr_yellow_fall_leafs_a = 1025
+spr_rock_bridge_a = 1026
+spr_suspension_bridge_a = 1027
+spr_mine_a = 1028
