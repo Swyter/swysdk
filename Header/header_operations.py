@@ -2225,6 +2225,8 @@ agent_ai_set_always_attack_in_melee      = 1737  # (agent_ai_set_always_attack_i
                                                  # Forces the agent to continuously attack in melee combat, instead of defending. Used in Native to prevent stalling at the top of the siege ladder. Use value = 0 to clear this mode.
 agent_get_simple_behavior                = 1738  # (agent_get_simple_behavior, <destination>, <agent_id>),
                                                  # Retrieves agent's current simple behavior (see aisb_* constants in header_mission_templates.py for details).
+agent_ai_set_can_crouch                  = 2083  # (agent_ai_set_can_crouch, <agent_id>, <value>), # 0 for false, 1 for true.
+
 agent_get_combat_state                   = 1739  # (agent_get_combat_state, <destination>, <agent_id>),
                                                  # Retrieves agent's current combat state:
                                                  #   0 = nothing special, this value is also always returned for player and for dead agents.
@@ -2817,7 +2819,6 @@ if swysdk['enable_wse']:
   agent_ai_get_look_target          = 3305 #(agent_ai_get_look_target, <destination>, <agent_no>), #Stores <agent_no>'s look target agent into <destination>
   agent_ai_get_move_target          = 3306 #(agent_ai_get_move_target, <destination>, <agent_no>), #Stores <agent_no>'s move target agent into <destination>
   agent_ai_get_behavior_target      = 3307 #(agent_ai_get_behavior_target, <destination>, <agent_no>), #Stores <agent_no>'s behavior target agent into <destination>
-  agent_ai_set_can_crouch           = 2083 #(agent_ai_set_can_crouch, <agent_id>, <value>), # 0 for false, 1 for true.
   agent_get_ground_scene_prop       = 3308 #(agent_get_ground_scene_prop, <destination>, <agent_no>), #Stores the prop instance on which <agent_no> is standing into <destination>
   agent_get_item_slot_ammo          = 3309 #(agent_get_item_slot_ammo, <destination>, <agent_no>, <item_slot_no>), #Stores <agent_no>'s <item_slot_no> ammo count into <destination>
   agent_set_item_slot_ammo          = 3310 #(agent_set_item_slot_ammo, <agent_no>, <item_slot_no>, <value>), #Sets <agent_no>'s <item_slot_no> ammo count to <value>
@@ -2831,7 +2832,6 @@ if swysdk['enable_wse']:
   agent_ai_get_move_target_position = 3318 #(agent_ai_get_move_target_position, <position_register>, <agent_no>), #Stores <agent_no>'s move target position agent into <position_register>
   agent_set_horse                   = 3319 #(agent_set_horse, <agent_no>, <horse_agent_no>), #Sets <agent_no>'s horse to <horse_agent_no> (-1 for no horse)
   agent_ai_set_simple_behavior      = 3320 #(agent_ai_set_simple_behavior, <agent_no>, <simple_behavior>, [<guaranteed_time>]), #Sets <agent_no>'s behavior to <simple_behavior> and guarantees it won't be changed for [<guaranteed_time>] seconds. If [<guaranteed_time>] is not specified or <= 0, it won't be changed until agent_force_rethink is called
-  agent_ai_set_can_crouch           = 2083 #(agent_ai_set_can_crouch, <agent_id>, <value>), # 0 for false, 1 for true.
 
   
   multiplayer_send_chat_message_to_player      = 3400 #(multiplayer_send_chat_message_to_player, <player_no>, <sender_player_no>, <text>, [<type>]), #Sends <text> to <player_no> as a (native compatible) chat message by <sender_player_no>. Works only on servers. [<type>]: 0 = chat, 1 = team chat
