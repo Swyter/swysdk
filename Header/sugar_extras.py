@@ -6,10 +6,18 @@
 import string
 from header_operations import *
 
+class Meta(type):
+  def __getattr__(cls, attr):
+    if attr not in cls.objects:
+      cls.objects[attr] = cls(attr)
+    return cls.objects[attr]
+
 #===============================================================================
 # Troop wrapper
 #===============================================================================
 class trp:
+    __metaclass__ = Meta
+    objects = {}
     def __init__(self, ID):
         if (ID[0] == ":") or (ID[0] == "$"):
             self.ID = ID
@@ -164,6 +172,8 @@ class trp:
 # Quest wrapper
 #===============================================================================
 class qst:
+    __metaclass__ = Meta
+    objects = {}
     def __init__(self, ID):
         if (ID[0] == ":") or (ID[0] == "$"):
             self.ID = ID
@@ -189,6 +199,8 @@ class qst:
 # Party wrapper
 #===============================================================================
 class p:
+    __metaclass__ = Meta
+    objects = {}
     def __init__(self, ID):
         if (ID[0] == ":") or (ID[0] == "$"):
             self.ID = ID
@@ -200,10 +212,32 @@ class p:
 
     def get_slot (self, destination, slot_no):
         return party_get_slot, destination, self.ID, slot_no
-		
-		
+
+    def set_name(self, string_no):
+        return party_set_name, string_no
+        
+#===============================================================================
+# val wrapper
+#===============================================================================
+class val:
+    __metaclass__ = Meta
+    objects = {}
+    def __init__(self, ID):
+        if (ID[0] == ":") or (ID[0] == "$"):
+            self.ID = ID
+    
+    def add(self, operand):
+      return val_add, self.ID, operand
+
+
+#===============================================================================
+# Bonus wrappers
+#===============================================================================
 def call(ID, *values):
 	if not ID.startswith("script_"):
 		ID = "script_" + ID
 	base=[call_script,ID,]
 	return tuple(base.append(list(values)))
+  
+def set(a,b):
+  return assign,a,b
